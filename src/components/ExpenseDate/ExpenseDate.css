@@ -1,0 +1,23 @@
+.expensedate {
+  border: 1px solid #fff;
+  background: gray;
+  padding: 10px 20px;
+  border-radius: 12px;
+}
+
+.expensedate_month,
+.expensedate_year,
+.expensedate_day {
+  color: #fff;
+  font-weight: 600;
+}
+.expensedate_month,
+.expensedate_year {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.expensedate_day {
+  font-size: 22px;
+  line-height: 26px;
+}

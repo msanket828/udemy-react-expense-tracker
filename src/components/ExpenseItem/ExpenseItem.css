@@ -1,0 +1,23 @@
+.expense-item {
+  border: 1px solid #fff;
+  border-radius: 12px;
+  padding: 5px;
+}
+
+.expense-item:not(:last-child) {
+  margin: 0 0 16px;
+}
+
+.expense-item__title {
+  font-size: 22px;
+  line-height: 26px;
+  color: #fff;
+}
+
+.expense-item__amount {
+  background: rebeccapurple;
+  padding: 10px 20px;
+  border: 1px solid #fff;
+  border-radius: 12px;
+  color: #fff;
+}
