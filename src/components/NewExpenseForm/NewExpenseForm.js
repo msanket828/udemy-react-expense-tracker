@@ -1,19 +1,58 @@
-const NewExpenseForm = () => {
+import { useState } from "react";
+
+const NewExpenseForm = ({ onSaveExpenseData }) => {
+  const [enteredTitle, setEnteredTitle] = useState("");
+  const [enteredAmount, setEnteredAmount] = useState("");
+  const [enteredDate, setEnteredDate] = useState("");
+
+  const titleChangeHandler = (event) => {
+    setEnteredTitle(event.target.value);
+  };
+
+  const amountChangeHandler = (event) => {
+    setEnteredAmount(event.target.value);
+  };
+
+  const dateChangeHandler = (event) => {
+    setEnteredDate(event.target.value);
+  };
+
+  const handleExpenseSubmit = (event) => {
+    event.preventDefault();
+    const expenseData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate),
+    };
+    onSaveExpenseData(expenseData);
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
+  };
+
   return (
     <div className="new-expenseform">
-      <form>
+      <form onSubmit={handleExpenseSubmit}>
         <div className="new-expenseform__container mb-4">
           <div className="form-group">
-            <label className="text-white">Expense Item Name</label>
+            <label className="text-white">Title</label>
             <input
+              onChange={titleChangeHandler}
               type="text"
               className="form-control"
               placeholder="New Expense Name"
+              value={enteredTitle}
             />
           </div>
           <div className="form-group">
             <label className="text-white">Expense Amount</label>
-            <input type="tel" className="form-control" placeholder="Amount" />
+            <input
+              type="tel"
+              className="form-control"
+              placeholder="Amount"
+              onChange={amountChangeHandler}
+              value={enteredAmount}
+            />
           </div>
           <div className="form-group">
             <label className="text-white">Purchase Date</label>
@@ -23,6 +62,8 @@ const NewExpenseForm = () => {
               min="2022-01-01"
               max="2025-12-12"
               placeholder="Date"
+              onChange={dateChangeHandler}
+              value={enteredDate}
             />
           </div>
         </div>

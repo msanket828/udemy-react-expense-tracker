@@ -25,11 +25,19 @@ function App() {
     },
   ];
 
+  const addExpenseDataHandler = (enteredExpenseData) => {
+    let expenseData = {
+      ...enteredExpenseData,
+      id: Math.random().toString(),
+    };
+    console.log(expenseData);
+  };
+
   return (
     <main>
       <div className="app">
         <div className="container">
-          <NewExpense />
+          <NewExpense onAddExpenseData={addExpenseDataHandler} />
           <Expenses expenseList={expenseList} />
         </div>
       </div>
