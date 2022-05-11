@@ -1,19 +1,10 @@
 import ExpenseItem from "../ExpenseItem/ExpenseItem";
 import "./Expenses.css";
 
-const Expenses = ({ expenseList }) => {
+const Expenses = ({ title, date, amount }) => {
   return (
     <div className="expense-item-container">
-      {expenseList.map((el) => {
-        return (
-          <ExpenseItem
-            key={el.id}
-            title={el.title}
-            date={el.date}
-            amount={el.amount}
-          />
-        );
-      })}
+      <ExpenseItem title={title} date={date} amount={amount} />
     </div>
   );
 };
