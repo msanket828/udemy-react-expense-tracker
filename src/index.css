@@ -38,7 +38,7 @@ main::before {
   margin: 50px 0;
 }
 
-.app .expense-item-container {
+.app .expenses {
   padding: 20px;
   background-color: #333;
   border-radius: 12px;

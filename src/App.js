@@ -2,7 +2,6 @@ import "./index.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
-import ExpenseFilter from "./components/ExpenseFilter/ExpenseFilter";
 import { useState } from "react";
 
 function App() {
@@ -34,7 +33,6 @@ function App() {
   ];
 
   const [expense, setExpense] = useState(expenseList);
-  const [filteredYear, setFilteredYear] = useState("2022");
 
   const addExpenseDataHandler = (enteredExpenseData) => {
     // let expenseData = {
@@ -47,33 +45,12 @@ function App() {
     });
   };
 
-  const onSaveFilterByYear = (selectedYear) => {
-    setFilteredYear(selectedYear);
-  };
-
-  const newExpenseList = expense.filter(
-    (el) => el.date.getFullYear().toString() === filteredYear
-  );
-
   return (
     <main>
       <div className="app">
         <div className="container">
-          <ExpenseFilter
-            selectedYear={filteredYear}
-            onFilterByYear={onSaveFilterByYear}
-          />
           <NewExpense onAddExpenseData={addExpenseDataHandler} />
-          {newExpenseList.map((el) => {
-            return (
-              <Expenses
-                key={el.id}
-                title={el.title}
-                amount={el.amount}
-                date={el.date}
-              />
-            );
-          })}
+          <Expenses expense={expense} />
         </div>
       </div>
     </main>
