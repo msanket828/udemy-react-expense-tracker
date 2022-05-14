@@ -1,0 +1,4 @@
+.chart-bar { margin: 5px 0; height: 150px; display: flex; flex-direction: column; } 
+.chart-bar .chart-bar__inner { width: 20px; height: 100%; border: 1px solid #000; border-radius: 50px; overflow: hidden; position: relative; background: #FFF;} 
+.chart-bar .chart-bar__fill { background: skyblue; position: absolute; left: 0; bottom: 0; width: 100%; height: 100%; transition: height .3s ease;}
+

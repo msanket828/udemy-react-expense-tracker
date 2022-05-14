@@ -35,11 +35,6 @@ function App() {
   const [expense, setExpense] = useState(expenseList);
 
   const addExpenseDataHandler = (enteredExpenseData) => {
-    // let expenseData = {
-    //   ...enteredExpenseData,
-    //   id: Math.random().toString(),
-    // };
-    // console.log(expenseData);
     setExpense((prevExpense) => {
       return [enteredExpenseData, ...prevExpense];
     });
@@ -49,7 +44,7 @@ function App() {
     <main>
       <div className="app">
         <div className="container">
-          <NewExpense onAddExpenseData={addExpenseDataHandler} />
+          <NewExpense onAddExpenseData={addExpenseDataHandler} />          
           <Expenses expense={expense} />
         </div>
       </div>
